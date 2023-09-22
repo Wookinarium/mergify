@@ -1,7 +1,7 @@
 pull_request_rules:
   - name: Automatic merge on approval
     conditions:
-      - "status-success=CI"
+      - "status-success=build"
     actions:
       copy:
         branches:
