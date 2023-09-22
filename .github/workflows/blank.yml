@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Testing A
-        run: sh test_a.sh
-      - name: Testing B
-        run: sh test_b.sh
+      - name: Testing
+        run: sh test.sh
+
