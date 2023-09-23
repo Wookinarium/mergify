@@ -9,4 +9,4 @@ pull_request_rules:
             - workflow: e2e-branch.yml
       copy:
         branches:
-          - "{{branch}}-e2e"
+          - "{{ head }}-e2e"
