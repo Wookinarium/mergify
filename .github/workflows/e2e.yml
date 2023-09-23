@@ -8,6 +8,9 @@ on:
 jobs:
   e2e:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        parallelism: [1]
     steps:
       - uses: actions/checkout@v3
       - name: Testing
