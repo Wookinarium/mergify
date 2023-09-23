@@ -2,8 +2,8 @@ pull_request_rules:
   - name: Tests pass
     conditions:
       - "#approved-reviews-by>=0"
+      - "check-success=build"
     actions:
-      github_actions:
-        workflow:
-          dispatch:
-            - workflow: test.yml
+      post_check:
+        success_conditions:
+          - "check-success=e2e"
