@@ -7,3 +7,13 @@ pull_request_rules:
       label:
         add:
           - passed
+
+queue_rules:
+  - name: E2E tests pass
+    merge_conditions:
+      - "check-success=e2e"
+    allow_inplace_checks: false
+    batch_size: 2
+    merge_method: squash
+    speculative_checks: 2
+    update_method: rebase
