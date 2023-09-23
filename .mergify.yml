@@ -7,9 +7,16 @@ pull_request_rules:
       label:
         add:
           - passed
+  - name: AGW requires staging manual test
+    conditions:
+      - "files=src/agw"
+    actions:
+      label:
+        add:
+          - staging-test
 
 queue_rules:
-  - name: default
+  - name: E2E tests pass
     merge_conditions:
       - "check-success=e2e"
     allow_inplace_checks: false
