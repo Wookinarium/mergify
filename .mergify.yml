@@ -1,12 +1,16 @@
 pull_request_rules:
-  - name: Automatic merge on approval
+  - name: Label unit-passing PRs with E2E
     conditions:
       - "status-success=build"
+    actions:
+      label:
+        add:
+          - "E2E"
+  - name: Run E2E on E2E-labeled PRs
+    conditions:
+      - "label=E2E"
     actions:
       github_actions:
         workflow:
           dispatch:
-            - workflow: e2e-branch.yml
-      copy:
-        branches:
-          - "{{ head }}-e2e"
+            - workflow: e2e.yml
