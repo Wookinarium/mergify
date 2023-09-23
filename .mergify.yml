@@ -5,12 +5,19 @@ pull_request_rules:
     actions:
       label:
         add:
-          - "E2E"
+          - "E2E-started"
+      post_check:
+        success_conditions:
+          - "label=E2E-passed"
   - name: Run E2E on E2E-labeled PRs
     conditions:
-      - "label=E2E"
+      - "status-success=build"
+      - "label=E2E-started"
     actions:
       github_actions:
         workflow:
           dispatch:
             - workflow: e2e.yml
+      label:
+        add:
+          - E2E-passed
