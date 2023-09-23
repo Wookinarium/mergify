@@ -6,7 +6,7 @@ pull_request_rules:
       github_actions:
         workflow:
           dispatch:
-            - workflow: e2e-branch.yaml
+            - workflow: e2e-branch.yml
       copy:
         branches:
           - "{{branch}}-e2e"
