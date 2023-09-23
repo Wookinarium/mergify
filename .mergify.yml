@@ -3,6 +3,10 @@ pull_request_rules:
     conditions:
       - "status-success=build"
     actions:
+      github_actions:
+        workflow:
+          dispatch:
+            - workflow: e2e-branch.yaml
       copy:
         branches:
           - "{{branch}}-e2e"
