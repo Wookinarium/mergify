@@ -6,8 +6,6 @@ pull_request_rules:
       label:
         add:
           - E2E-started
-        remove:
-          - E2E-passed
       post_check:
         success_conditions:
           - "label=E2E-passed"
@@ -24,5 +22,3 @@ pull_request_rules:
       label:
         add:
           - E2E-passed
-        remove:
-          - E2E-started
