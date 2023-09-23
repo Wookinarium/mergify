@@ -5,10 +5,11 @@ pull_request_rules:
     actions:
       label:
         add:
-          - "E2E-started"
+          - E2E-started
       post_check:
         success_conditions:
           - "label=E2E-passed"
+        title: "Passed E2E"
   - name: Run E2E on E2E-labeled PRs
     conditions:
       - "status-success=build"
@@ -21,3 +22,5 @@ pull_request_rules:
       label:
         add:
           - E2E-passed
+        remove:
+          - E2E-started
