@@ -16,11 +16,9 @@ pull_request_rules:
           - staging-test
 
 queue_rules:
-  - name: E2E tests pass
+  - name: default
     merge_conditions:
       - "check-success=e2e"
     allow_inplace_checks: false
-    batch_size: 2
     merge_method: squash
-    speculative_checks: 2
     update_method: rebase
