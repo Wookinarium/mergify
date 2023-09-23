@@ -9,7 +9,7 @@ pull_request_rules:
           - passed
 
 queue_rules:
-  - name: E2E tests pass
+  - name: default
     merge_conditions:
       - "check-success=e2e"
     allow_inplace_checks: false
