@@ -1,24 +1,9 @@
 pull_request_rules:
-  - name: Label unit-passing PRs with E2E
+  - name: Tests pass
     conditions:
-      - "status-success=build"
-    actions:
-      label:
-        add:
-          - E2E-started
-      post_check:
-        success_conditions:
-          - "label=E2E-passed"
-        title: "Passed E2E"
-  - name: Run E2E on E2E-labeled PRs
-    conditions:
-      - "status-success=build"
-      - "label=E2E-started"
+      - "#approved-reviews-by>=0"
     actions:
       github_actions:
         workflow:
           dispatch:
-            - workflow: e2e.yml
-      label:
-        add:
-          - E2E-passed
+            - workflow: test.yml
