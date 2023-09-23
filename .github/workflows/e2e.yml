@@ -1,5 +1,9 @@
 name: E2E
 on:
+  push:
+    branches: [ "mergify/merge-queue/*" ]
+  pull_request:
+    branches: [ "mergify/merge-queue/*" ]
   workflow_dispatch:
 jobs:
   build:
