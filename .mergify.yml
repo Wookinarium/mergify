@@ -4,6 +4,6 @@ pull_request_rules:
       - "#approved-reviews-by>=0"
       - "check-success=build"
     actions:
-      post_check:
-        success_conditions:
-          - "check-success=e2e"
+      label:
+        add:
+          - ready
